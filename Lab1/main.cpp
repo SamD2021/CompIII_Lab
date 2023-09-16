@@ -1,7 +1,8 @@
-/* Program: Lab 1
- * Group: Samuel Dasilva, Melissa Ing (Presenter), Luka Metias, Camila Salinas Camacho
- * Due Date: 09/19/2023
- */
+/*
+    Program: Lab 1
+    Group: Samuel Dasilva, Melissa Ing (Presenter), Luka Metias, Camila Salinas Camacho
+    Due Date: 09/19/2023
+*/
 
 #include <iostream>
 
