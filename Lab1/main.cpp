@@ -1,3 +1,9 @@
+/*
+    Program: Lab 1
+    Group: Samuel Dasilva, Melissa Ing (Presenter), Luka Metias, Camila Salinas Camacho
+    Due Date: 09/19/2023
+*/
+
 #include <iostream>
 
 using namespace std;
@@ -10,6 +16,9 @@ int main(int argc, char *argv[]) {
     int loan_period;
 
     user_input(annual_interest_rate, amount_to_receive, loan_period);
+
+    cout << "The total amount of a loan with an annual interest rate of " << annual_interest_rate << "% is $" << temp_total << "." << endl;
+    cout << "The monthly payment for " << loan_period << " months will be $" << temp_monthly_payment << "." << endl;
 
     return 0;
 }
