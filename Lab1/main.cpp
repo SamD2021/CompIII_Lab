@@ -12,14 +12,26 @@ void user_input (double& annual_interest_rate, double& amount_to_receive, int& l
 double calculateLoanAmount(double amountNeeded, double interestRate, int durationMonths, double& monthlyPayment);
 
 int main(int argc, char *argv[]) {
-    double annual_interest_rate, amount_to_receive, temp_total;
+    double annual_interest_rate, amount_to_receive, total;
     int loan_period;
-    double temp_monthly_payment;
+    double monthly_payment;
 
     user_input(annual_interest_rate, amount_to_receive, loan_period);
-    temp_total = calculateLoanAmount(amount_to_receive, annual_interest_rate, loan_period, temp_monthly_payment);
-    cout << "The total amount of a loan with an annual interest rate of " << annual_interest_rate << "% is $" << temp_total << "." << endl;
-    cout << "The monthly payment for " << loan_period << " months will be $" << temp_monthly_payment << "." << endl;
+
+    if (annual_interest_rate == 0)
+    {
+        exit(0);
+    }
+
+    total = calculateLoanAmount(amount_to_receive, annual_interest_rate, loan_period, monthly_payment);
+
+    cout << "The total amount of a loan with an annual interest rate of " << annual_interest_rate << "% is $" << total << "." << endl;
+    
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(2);
+
+    cout << "The monthly payment for " << loan_period << " months will be $" << monthly_payment << "." << endl;
 
     return 0;
 }
@@ -39,14 +51,12 @@ void user_input (double& annual_interest_rate, double& amount_to_receive, int& l
 }
 
 double calculateLoanAmount(double amountNeeded, double interestRate, int durationMonths, double& monthlyPayment){
-    double durationYears;
-    double totalInterest;
-    double faceValue;
-    double amountReceived;
-    interestRate = interestRate/100; // transition from percentage to decimal
-    durationYears = durationMonths/12.0;
-    faceValue = amountNeeded/((1-interestRate)*durationYears);
-    monthlyPayment = faceValue/durationMonths;
+    double durationYears, faceValue;
+
+    interestRate = interestRate / 100; // Transition from percentage to decimal
+    durationYears = durationMonths / 12.0;
+    faceValue = amountNeeded / ((1 - interestRate) * durationYears);
+    monthlyPayment = faceValue / durationMonths;
 
     return faceValue;
 }
