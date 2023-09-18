@@ -9,14 +9,15 @@
 using namespace std;
 
 void user_input (double& annual_interest_rate, double& amount_to_receive, int& loan_period);
-double calculateLoanAmount(double initialFaceValue, double interestRate, int durationMonths, double& monthlyPayment);
+double calculateLoanAmount(double amountNeeded, double interestRate, int durationMonths, double& monthlyPayment);
 
 int main(int argc, char *argv[]) {
-    double annual_interest_rate, amount_to_receive;
+    double annual_interest_rate, amount_to_receive, temp_total;
     int loan_period;
+    double temp_monthly_payment;
 
     user_input(annual_interest_rate, amount_to_receive, loan_period);
-
+    temp_total = calculateLoanAmount(amount_to_receive, annual_interest_rate, loan_period, temp_monthly_payment);
     cout << "The total amount of a loan with an annual interest rate of " << annual_interest_rate << "% is $" << temp_total << "." << endl;
     cout << "The monthly payment for " << loan_period << " months will be $" << temp_monthly_payment << "." << endl;
 
@@ -44,10 +45,8 @@ double calculateLoanAmount(double amountNeeded, double interestRate, int duratio
     double amountReceived;
     interestRate = interestRate/100; // transition from percentage to decimal
     durationYears = durationMonths/12.0;
-    totalInterest = (amountNeeded * (interestRate)) * durationYears;
-    amountReceived = amountNeeded - totalInterest;
-    faceValue = amountReceived/(1-(interestRate*durationYears));
+    faceValue = amountNeeded/((1-interestRate)*durationYears);
     monthlyPayment = faceValue/durationMonths;
 
-    return amountReceived;
+    return faceValue;
 }
