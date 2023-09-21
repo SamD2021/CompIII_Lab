@@ -19,8 +19,8 @@ void convert_pounds_and_oz_to_kilograms_and_grams(int pounds, double oz, int& ki
 const double KG = 0.45359237;
 
 int main(int argc, char* argv[]){
-    int numPounds;
-    double numOunces;
+    int pounds;
+    double ounces;
     
     driver_code(); // executes all the functions
     
