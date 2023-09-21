@@ -1,3 +1,9 @@
+/*
+    Program: Lab 2
+    Group: Samuel Dasilva, Melissa Ing, Luka Metias, Camila Salinas Camacho
+    Due Date: 09/26/2023
+*/
+
 #include <iostream>
 #include <cmath>
 
@@ -5,6 +11,7 @@ using namespace std;
 // functions declaration below
 
 void driver_code();
+void getUserInput(int& pounds, double& ounces);
 void displayConversion (int pounds, double ounces, int kilograms, double grams);
 void convert_pounds_and_oz_to_kilograms_and_grams(int pounds, double oz, int& kilograms, double& grams);
 
@@ -12,16 +19,34 @@ void convert_pounds_and_oz_to_kilograms_and_grams(int pounds, double oz, int& ki
 const double KG = 0.45359237;
 
 int main(int argc, char* argv[]){
+    int numPounds;
+    double numOunces;
+    
     driver_code(); // executes all the functions
+    
     return 0;
 }
 
 void driver_code(){
     // call all functions from here
-    // convert_pounds_and_oz_to_kilograms_and_grams(pounds,ounces, kilograms, grams);
-    // displayConversion(pounds, ounces, kilograms, grams);
+    getUserInput(int& pounds, double& ounces);
+    convert_pounds_and_oz_to_kilograms_and_grams(pounds,ounces, kilograms, grams);
+    displayConversion(pounds, ounces, kilograms, grams);
 }
 
+void getUserInput(int& pounds, double& ounces){
+    while ((cout << "Please enter the number of pounds: ") && (!(cin >> pounds) || pounds < 0)) {
+        cout << "That is not a number greater than or equal to 0. " << endl;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+
+    while ((cout << "Please enter the number of ounces: ") && (!(cin >> ounces) || ounces < 0.0 || ounces >= 16.0)) {
+        cout << "That is not a number greater than or equal to 0 and less than 16. " << endl;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+}
 
 void displayConversion (int pounds, double ounces, int kilograms, double grams)
 {
@@ -33,6 +58,7 @@ void displayConversion (int pounds, double ounces, int kilograms, double grams)
 void convert_pounds_and_oz_to_kilograms_and_grams(int pounds, double oz, int& kilograms, double& grams){
     double totalPounds;
     double totalWeight;
+    
     totalPounds = (oz/16.0) + pounds;
     totalWeight = totalPounds * KG;
     kilograms = totalWeight;
