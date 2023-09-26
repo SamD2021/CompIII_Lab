@@ -11,9 +11,9 @@ public:
     void setMassAvoirdupoisPounds(double mass);
     void setMassTroyPounds(double mass);
     void setMassMetricGrams(double mass);
-    double getMassAvoirdupoisPounds(void);
-    double getMassTroyPounds(void);
-    double getMassMetricGrams(void);
+    double getMassAvoirdupoisPounds(void) const;
+    double getMassTroyPounds(void) const;
+    double getMassMetricGrams(void) const;
 private:
     double avoirdupoisPounds;
     double troyPounds;
