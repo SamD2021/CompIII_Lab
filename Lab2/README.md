@@ -1,2 +1,2 @@
 # CompIII_Lab
-
+Lab 2 we were infromed to make a lab that takes numbers for pounds, ounces, kilograms and grams and converts them. The first function is and input function of what the user wants to convert from poinds and ounces to kilograms and grams. The second function takes the user inputs that are pounds and ounces and does the math to convert them to kilorams and grams. The last function we now print the final result of what the second function has done and it uses cout<< to show the user the final result. As a group we split the work and everyone has done their parts of the lab.
