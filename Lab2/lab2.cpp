@@ -19,9 +19,6 @@ void convert_pounds_and_oz_to_kilograms_and_grams(int pounds, double oz, int& ki
 const double KG = 0.45359237;
 
 int main(int argc, char* argv[]){
-    int pounds;
-    double ounces;
-    
     driver_code(); // executes all the functions
     
     return 0;
@@ -29,7 +26,9 @@ int main(int argc, char* argv[]){
 
 void driver_code(){
     // call all functions from here
-    getUserInput(int& pounds, double& ounces);
+    int pounds, kilograms;
+    double ounces, grams;
+    getUserInput(pounds, ounces);
     convert_pounds_and_oz_to_kilograms_and_grams(pounds,ounces, kilograms, grams);
     displayConversion(pounds, ounces, kilograms, grams);
 }
@@ -61,6 +60,6 @@ void convert_pounds_and_oz_to_kilograms_and_grams(int pounds, double oz, int& ki
     
     totalPounds = (oz/16.0) + pounds;
     totalWeight = totalPounds * KG;
-    kilograms = totalWeight;
+    kilograms = floor(totalWeight);
     grams = (totalWeight - kilograms) * 1000;
 }
