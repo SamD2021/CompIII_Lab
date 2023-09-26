@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include <iostream>
 #include <string>
 #include <limits>
@@ -60,3 +61,6 @@ int main(int argc, char* argv[]){
 
     return 0;
 }
+=======
+
+>>>>>>> d19599a (Create lab3.cpp)
