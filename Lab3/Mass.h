@@ -13,7 +13,7 @@ public:
     void setMassMetricGrams(double mass);
     double getMassAvoirdupoisPounds(void);
     double getMassTroyPounds(void);
-    double getMassMetricGrams(void);
+    double getMassMetricGrams(void) const;
 private:
     double avoirdupoisPounds;
     double troyPounds;

@@ -4,8 +4,12 @@
 
 #include "Mass.h"
 
-void setMassMetricGrams(double mass){
-    double mass;
+void Mass::setMassMetricGrams(double mass){
 
-    mass = mass * 1.7718451953125;
+    metricGrams = mass * 1.7718451953125;
+}
+
+double Mass::getMassMetricGrams(void) const
+{
+    return metricGrams;
 }
