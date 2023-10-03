@@ -11,12 +11,14 @@ int main(int argc, char* argv[]){
     Mass myMass;
 
     do {
+        chosenUnit = "";
         cout << "Please enter 1 to use Avoirdupois pounds, 2 to use Troy pounds, 3 to use grams, or 0 to exit: ";
         cin >> userInput;
 
         switch (userInput){
             case 0:
                 cout << "Thanks for using the mass conversion program!" << endl;
+                return 0;
                 break;
             case 1:
                 chosenUnit = "Avoirdupois pounds";
@@ -49,12 +51,12 @@ int main(int argc, char* argv[]){
         } else if (chosenUnit == "grams"){
             myMass.setMassMetricGrams(units);
         }
-
-        cout << "Mass in " << "Avoirdupois pounds" << " is " << myMass.getMassAvoirdupoisPounds() << endl;
-        cout << "Mass in " << "Troy pounds" << " is " << myMass.getMassTroyPounds() << endl;
-        cout << "Mass in " << "grams" << " is " << myMass.getMassMetricGrams() << endl;
-
-    } while((userInput < 0) || (userInput > 3));
+        if(chosenUnit != ""){
+            cout << "Mass in " << "Avoirdupois pounds" << " is " << myMass.getMassAvoirdupoisPounds() << endl;
+            cout << "Mass in " << "Troy pounds" << " is " << myMass.getMassTroyPounds() << endl;
+            cout << "Mass in " << "grams" << " is " << myMass.getMassMetricGrams() << endl;
+        }
+    } while(userInput);
 
     return 0;
 }
