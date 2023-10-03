@@ -8,6 +8,7 @@
 
 class Mass {
 public:
+    Mass():drams(0){}
     void setMassAvoirdupoisPounds(double mass);
     void setMassTroyPounds(double mass);
     void setMassMetricGrams(double mass);
