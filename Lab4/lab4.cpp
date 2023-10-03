@@ -104,3 +104,18 @@ ostream& operator<< (ostream& out, Month m) {
 
 
 // ***** Add your Date class definition and driver program below. *****
+class Date{
+    Date(); // sam
+    Date(int month); // sam
+    Date(string month); // sam
+    void setMonth(int month); // Luka
+    void outputDateAsInt(ostream&); // Luka
+    void outputDateAsString(ostream&);// sam
+    friend ostream& operator<<(ostream&, Date); // Camila
+    friend void operator++ (Date); // Camila
+
+private:
+    Month _month;
+    int _day;
+    int _year;
+};
