@@ -15,9 +15,7 @@ public:
     double getMassTroyPounds(void) const;
     double getMassMetricGrams(void) const;
 private:
-    double avoirdupoisPounds;
-    double troyPounds;
-    double metricGrams;
+    double drams;
 };
 
 
