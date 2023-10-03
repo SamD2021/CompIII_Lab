@@ -12,3 +12,13 @@ void Mass::setMassAvoirdupoisPounds(double mass) {
 double Mass::getMassAvoirdupoisPounds() const  {
     return drams/256;
 }
+
+void Mass::setMassTroyPounds(double mass)
+{
+    drams = mass*96;
+}
+
+double Mass::getMassTroyPounds() const
+{
+    return drams/96;
+}
