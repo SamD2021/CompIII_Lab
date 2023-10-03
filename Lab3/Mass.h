@@ -12,9 +12,9 @@ public:
     void setMassAvoirdupoisPounds(double mass);
     void setMassTroyPounds(double mass);
     void setMassMetricGrams(double mass);
-    double getMassAvoirdupoisPounds(void) const;
-    double getMassTroyPounds(void) const;
-    double getMassMetricGrams(void) const;
+    double getMassAvoirdupoisPounds() const;
+    double getMassTroyPounds() const;
+    double getMassMetricGrams() const;
 private:
     double drams;
 };
