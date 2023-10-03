@@ -10,14 +10,21 @@ int main(int argc, char* argv[]){
     string chosenUnit;
     Mass myMass;
     do{
-        cout << "Please enter 1 to use Avoirdupois pounds, 2 to use Troy pounds, 3 to use grams, or 0 to exit:" << endl;
-        cin >> userInput;
+        cout << "Please enter 1 to use Avoirdupois pounds, 2 to use Troy pounds, 3 to use grams, or 0 to exit: ";
+
+        while ((cout << "Please enter 1 to use Avoirdupois pounds, 2 to use Troy pounds, 3 to use grams, or 0 to exit: ") && (!(cin >> userInput) || userInput < 0 || userInput > 3)) {
+            cout << "Not a valid unit, please try again. " << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+
         switch (userInput){
             case 0:
                 return 0;
                 break;
             case 1:
                 chosenUnit = "Avoirdupois pounds";
+                break;
             case 2:
                 chosenUnit = "Troy pounds";
                 break;
@@ -25,14 +32,10 @@ int main(int argc, char* argv[]){
                 chosenUnit = "grams";
                 break;
             default:
-                while ((cout << "Please enter the number of pounds: ") && (!(cin >> pounds) || pounds < 0)) {
-                    cout << "Not a valid number, please try again. " << endl;
-                    cin.clear();
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                }
+                break;
         }
         cout << "Please enter a mass in " << chosenUnit << ": ";
-        while ((cout << "Please enter the number of pounds: ") && (!(cin >> pounds) || pounds < 0)) {
+        while ((!(cin >> pounds) || pounds < 0)) {
             cout << "That is not a number greater than or equal to 0. " << endl;
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -44,9 +47,9 @@ int main(int argc, char* argv[]){
         }else if (chosenUnit == "grams"){
             myMass.setMassMetricGrams(pounds);
         }
-        cout << myMass.getMassAvoirdupoisPounds() << endl;
-        cout << myMass.getMassTroyPounds() << endl;
-        cout << myMass.getMassMetricGrams() << endl;
+        cout << "Mass in " << "Avoirdupois pounds" << " is " << myMass.getMassAvoirdupoisPounds() << endl;
+        cout << "Mass in " << "Troy pounds" << " is " << myMass.getMassTroyPounds() << endl;
+        cout << "Mass in " << "grams" << " is " << myMass.getMassMetricGrams() << endl;
     }while(userInput);
 
     return 0;
