@@ -102,29 +102,20 @@ ostream& operator<< (ostream& out, Month m) {
 	return out;
 }
 
-// Driver program
-int main()
-{
-	Date date1;
-	Date date2(2, 1, 2018);
-	Date date3("Mar", 1, 2018);
 
-	cout << "With the following declarations:" << endl;
-	cout << "\t Date date1, date2(2, 1, 2018), date3("Mar", 1, 2018);"
-	cout << "...and using operator<< :" << endl;
-	cout << "date1 ==" << date1 << endl;
-	cout << "date2 ==" << date2 << endl;
-	cout << "date3 ==" << date3 << endl;
+// ***** Add your Date class definition and driver program below. *****
+class Date{
+    Date(); // sam
+    Date(int month); // sam
+    Date(string month); // sam
+    void setMonth(int month); // Luka
+    void outputDateAsInt(ostream&); // Luka
+    void outputDateAsString(ostream&);// sam
+    friend ostream& operator<<(ostream&, Date); // Camila
+    friend void operator++ (Date); // Camila
 
-	cout << "After date3.setMonth(4):" << endl;
-	cout << "date3 == " << date3.setMonth(4) << endl;
-
-	cout << "With the following declaration:" << endl;
-
-	cout << "date4.outputDateAsInt(cout) outputs " << date4.outputDateAsInt(cout) << endl;
-	cout << "date4.outputDateAsString(cout) outputs " << date4.outputDateAsString(cout) << endl;
-
-	cout << "++date4 == " << ++date4 << endl;
-
-	return 0;
-}
+private:
+    Month _month;
+    int _day;
+    int _year;
+};

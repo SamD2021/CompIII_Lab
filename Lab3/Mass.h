@@ -8,16 +8,15 @@
 
 class Mass {
 public:
+    Mass():drams(0){}
     void setMassAvoirdupoisPounds(double mass);
     void setMassTroyPounds(double mass);
     void setMassMetricGrams(double mass);
-    double getMassAvoirdupoisPounds(void);
-    double getMassTroyPounds(void);
-    double getMassMetricGrams(void);
+    double getMassAvoirdupoisPounds() const;
+    double getMassTroyPounds() const;
+    double getMassMetricGrams() const;
 private:
-    double avoirdupoisPounds;
-    double troyPounds;
-    double metricGrams;
+    double drams;
 };
 
 
