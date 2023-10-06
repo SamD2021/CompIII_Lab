@@ -104,3 +104,58 @@ ostream& operator<< (ostream& out, Month m) {
 
 
 // ***** Add your Date class definition and driver program below. *****
+class Date{
+    Date(); // sam
+    Date(int month); // sam
+    Date(string month); // sam
+    void setMonth(int month); // Luka
+    void outputDateAsInt(ostream&); // Luka
+    void outputDateAsString(ostream&);// sam
+    friend ostream& operator<<(ostream& os, const Date& date); // Camila
+    Date& operator++(); // Camila
+
+private:
+    Month _month;
+    int _day;
+    int _year;
+};
+
+// Define the overloaded pre-increment operator (member function)
+Date& Date::operator++() {
+    _year++;
+    return *this;
+}
+
+// Define the overloaded insertion operator (non-member friend function)
+ostream& operator<<(ostream& os, const Date& date) {
+    os << date._month << " " << date._day << ", " << date._year;
+    return os;
+}
+
+
+// Driver program
+int main()
+{
+	Date date1;
+	Date date2(2, 1, 2018);
+	Date date3("Mar", 1, 2018);
+
+	cout << "With the following declarations:" << endl;
+	cout << "\t Date date1, date2(2, 1, 2018), date3("Mar", 1, 2018);"
+	cout << "...and using operator<< :" << endl;
+	cout << "date1 ==" << date1 << endl;
+	cout << "date2 ==" << date2 << endl;
+	cout << "date3 ==" << date3 << endl;
+
+	cout << "After date3.setMonth(4):" << endl;
+	cout << "date3 == " << date3.setMonth(4) << endl;
+
+	cout << "With the following declaration:" << endl;
+
+	cout << "date4.outputDateAsInt(cout) outputs " << date4.outputDateAsInt(cout) << endl;
+	cout << "date4.outputDateAsString(cout) outputs " << date4.outputDateAsString(cout) << endl;
+
+	cout << "++date4 == " << ++date4 << endl;
+
+	return 0;
+}
