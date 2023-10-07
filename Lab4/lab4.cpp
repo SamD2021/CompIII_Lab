@@ -109,9 +109,9 @@ class Date{
     Date(int month); // sam
     Date(string month); // sam
     void setMonth(int month); // Luka
-    void outputDateAsInt(ostream&); // Luka
-    void outputDateAsString(ostream&);// sam
-    friend ostream& operator<<(ostream&, Date); // Camila
+    void outputDateAsInt(ostream& out); // Luka
+    void outputDateAsString(ostream& out);// sam
+    friend ostream& operator<<(ostream& out, Date); // Camila
     friend void operator++ (Date); // Camila
 
 private:
@@ -146,3 +146,17 @@ int main()
 
 	return 0;
 }
+
+Date::Date(): _month(1), _day(1), _year(2018){}
+Date::Date(int month){
+   _month.setMonth(month);
+}
+
+Date::Date(string month){
+    _month.setMonth(month);
+}
+
+void Date::outputDateAsString(ostream &out) {
+    out << _month.MonthToString() << " " << _day << " " << _year << endl;
+}
+
