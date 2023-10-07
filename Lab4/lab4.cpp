@@ -105,9 +105,11 @@ ostream& operator<< (ostream& out, Month m) {
 
 // ***** Add your Date class definition and driver program below. *****
 class Date{
+public:
     Date(); // sam
-    Date(int month); // sam
-    Date(string month); // sam
+    Date(int month, int day, int year); // sam
+    Date(string month, int day, int year); // sam
+
     void setMonth(int month); // Luka
     void outputDateAsInt(ostream& out); // Luka
     void outputDateAsString(ostream& out);// sam
@@ -116,20 +118,58 @@ class Date{
 
 private:
     Month _month;
-    int _day;
-    int _year;
+    int _day{};
+    int _year{};
 };
 
+// Driver program
+int main()
+{
+	Date date1;
+	Date date2(2, 1, 2018);
+	Date date3("Mar", 1, 2018);
+
+	cout << "With the following declarations:" << endl;
+	cout << "\t Date date1, date2(2, 1, 2018), date3(\"Mar\", 1, 2018);" << endl;
+	cout << "...and using operator<< :" << endl;
+//	cout << "date1 ==" << date1 << endl;
+//	cout << "date2 ==" << date2 << endl;
+//	cout << "date3 ==" << date3 << endl;
+
+	cout << "After date3.setMonth(4):" << endl;
+//    date3.setMonth(4);
+//	cout << "date3 == " << date3 << endl;
+
+	cout << "With the following declaration:" << endl;
+    Date date4(12, 31, 2018);
+
+//	cout << "date4.outputDateAsInt(cout) outputs "; date4.outputDateAsInt(cout); cout << endl;
+
+	cout << "date4.outputDateAsString(cout) outputs "; date4.outputDateAsString(cout); cout << endl;
+//    ++date4;
+//	cout << "++date4 == " << date4 << endl;
+
+	return 0;
+}
+
+// Sam
 Date::Date(): _month(1), _day(1), _year(2018){}
-Date::Date(int month){
-   _month.setMonth(month);
-}
+//Sam
 
-Date::Date(string month){
+//Sam
+Date::Date(string month, int day, int year) {
     _month.setMonth(month);
+    _day = day;
+    _year = year;
+}
+//Sam
+void Date::outputDateAsString(ostream &out) {
+    out << _month.MonthToString() << " " << _day << ", " << _year << endl;
 }
 
-void Date::outputDateAsString(ostream &out) {
-    out << _month.MonthToString() << " " << _day << " " << _year << endl;
+Date::Date(int month, int day, int year) {
+    _month.setMonth(month);
+    _day = day;
+    _year = year;
 }
 
