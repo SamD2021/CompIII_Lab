@@ -114,7 +114,7 @@ public:
     void outputDateAsInt(ostream& out); // Luka
     void outputDateAsString(ostream& out);// sam
     friend ostream& operator<<(ostream& os, const Date& date); // Camila
-    friend void operator++ (Date); // Camila
+    Date& operator++(); // Camila
 
 private:
     Month _month;
@@ -132,9 +132,9 @@ int main()
 	cout << "With the following declarations:" << endl;
 	cout << "\t Date date1, date2(2, 1, 2018), date3(\"Mar\", 1, 2018);" << endl;
 	cout << "...and using operator<< :" << endl;
-//	cout << "date1 ==" << date1 << endl;
-//	cout << "date2 ==" << date2 << endl;
-//	cout << "date3 ==" << date3 << endl;
+	cout << "date1 == " << date1 << endl;
+	cout << "date2 == " << date2 << endl;
+	cout << "date3 == " << date3 << endl;
 
 	cout << "After date3.setMonth(4):" << endl;
 //    date3.setMonth(4);
@@ -146,8 +146,7 @@ int main()
 //	cout << "date4.outputDateAsInt(cout) outputs "; date4.outputDateAsInt(cout); cout << endl;
 
 	cout << "date4.outputDateAsString(cout) outputs "; date4.outputDateAsString(cout); cout << endl;
-//    ++date4;
-//	cout << "++date4 == " << date4 << endl;
+	cout << "++date4 == " << ++date4 << endl;
 
 	return 0;
 }
