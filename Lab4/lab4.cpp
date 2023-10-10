@@ -137,7 +137,7 @@ int main()
 	cout << "date3 == " << date3 << endl;
 
 	cout << "After date3.setMonth(4):" << endl;
-    date3.setMonth(4);
+    date3.setMonth(4); // throws error message if given wrong input
 	cout << "date3 == " << date3 << endl;
 
 	cout << "With the following declaration:" << endl;
