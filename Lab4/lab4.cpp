@@ -172,13 +172,13 @@ Date::Date(int month, int day, int year) {
     _year = year;
 }
 
-// Define the overloaded pre-increment operator (member function)
+//Camila: Define the overloaded pre-increment operator (member function)
 Date& Date::operator++() {
     _year++;
     return *this;
 }
 
-// Define the overloaded insertion operator (non-member friend function)
+//Camila: Define the overloaded insertion operator (non-member friend function)
 ostream& operator<<(ostream& os, const Date& date) {
     os << date._month << " " << date._day << ", " << date._year;
     return os;
