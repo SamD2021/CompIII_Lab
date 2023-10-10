@@ -118,8 +118,8 @@ public:
 
 private:
     Month _month;
-    int _day{};
-    int _year{};
+    int _day;
+    int _year;
 };
 
 // Driver program
@@ -137,14 +137,13 @@ int main()
 	cout << "date3 == " << date3 << endl;
 
 	cout << "After date3.setMonth(4):" << endl;
-//    date3.setMonth(4);
-//	cout << "date3 == " << date3 << endl;
+    date3.setMonth(4);
+	cout << "date3 == " << date3 << endl;
 
 	cout << "With the following declaration:" << endl;
     Date date4(12, 31, 2018);
-
-//	cout << "date4.outputDateAsInt(cout) outputs "; date4.outputDateAsInt(cout); cout << endl;
-
+    cout << "\t Date date4(12, 31, 2018);" << endl;
+	cout << "date4.outputDateAsInt(cout) outputs "; date4.outputDateAsInt(cout); cout << endl;
 	cout << "date4.outputDateAsString(cout) outputs "; date4.outputDateAsString(cout); cout << endl;
 	cout << "++date4 == " << ++date4 << endl;
 
@@ -182,6 +181,14 @@ Date& Date::operator++() {
 ostream& operator<<(ostream& os, const Date& date) {
     os << date._month << " " << date._day << ", " << date._year;
     return os;
+}
+
+void Date::setMonth(int month) {
+    _month.setMonth(month);
+}
+
+void Date::outputDateAsInt(ostream &out) {
+    out << _month.MonthToInt() << "/" << _day << "/" << _year << endl;
 }
 
 
