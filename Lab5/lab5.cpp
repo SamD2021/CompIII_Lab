@@ -6,10 +6,11 @@ using namespace std;
 class ComplexNumber{
 public:
     ComplexNumber();
-    int getReal()const;
-    void setReal(int num);
-    void setImaginary(const string& num);
-    string getImaginary()const;
+    ComplexNumber(double real,double imaginary);
+    double getReal()const;
+    void setReal(double num);
+    void setImaginary(double num);
+    double getImaginary()const;
     friend ostream& operator<<(ostream& out, const ComplexNumber& cn);
     ComplexNumber& operator+(const ComplexNumber& rhs);
     ComplexNumber& operator-(const ComplexNumber& rhs);
@@ -17,8 +18,8 @@ public:
     ComplexNumber& operator/(const ComplexNumber& rhs);
     ComplexNumber& operator!(const ComplexNumber& rhs);
 private:
-    int real;
-    string imaginary;
+    double real;
+    double imaginary;
 };
 
 
