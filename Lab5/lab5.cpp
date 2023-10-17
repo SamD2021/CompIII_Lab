@@ -4,8 +4,8 @@ using namespace std;
 
 class ComplexNumber {
 private:
-    int realNum;
-    int imagNum;
+    double realNum;
+    double imagNum;
 
 public:
     // Default constructor
