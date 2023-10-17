@@ -191,5 +191,3 @@ void Date::outputDateAsInt(ostream &out) {
     out << _month.MonthToInt() << "/" << _day << "/" << _year << endl;
 }
 
-
-
