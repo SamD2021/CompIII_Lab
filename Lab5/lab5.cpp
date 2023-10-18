@@ -5,52 +5,50 @@ using namespace std;
 
 class ComplexNumber{
 public:
-    ComplexNumber();
-    ComplexNumber(double real,double imaginary);
-    double getReal()const;
-    void setReal(double num);
-    void setImaginary(double num);
-    double getImaginary()const;
-    friend ostream& operator<<(ostream& out, const ComplexNumber& cn);
-    ComplexNumber& operator+(const ComplexNumber& rhs);
-    ComplexNumber& operator-(const ComplexNumber& rhs);
-    ComplexNumber& operator*(const ComplexNumber& rhs);
-    ComplexNumber& operator/(const ComplexNumber& rhs);
-    ComplexNumber& operator!(const ComplexNumber& rhs);
-private:
-    double real;
-    double imaginary;
-};
-
-
-int main(int argc, char* argv[]){
-
-using namespace std;
-
-class ComplexNumber {
-private:
-    double realNum;
-    double imagNum;
-
-public:
     // Default constructor
-    ComplexNumber(): realNum(0), imagNum(0) {}
+    ComplexNumber() : _real(0), _imaginary(0) {}
 
     // Value constructor
-    ComplexNumber(double r, double i): realNum(r), imagNum(i) {}
+    ComplexNumber(double real, double imaginary) : _real(real), _imaginary(imaginary) {}
 
     // Accessor functions
-    double getRealNum() const { return realNum; }
-    double getImagNum() const { return imagNum; }
+    double getReal() const { return _real; }
+    double getImaginary() const { return _imaginary; }
 
     // Mutator functions
-    double setRealNum(double r) { realNum = r; }
-    double setImagNum(double i) { imagNum = i; }
+    void setReal(double real) { _real = real; }
+    void setImaginary(double imaginary) { imaginary = imaginary; }
+
+    // Insertion operator
+    friend ostream& operator<< (ostream& out, const ComplexNumber& cn);
+
+    // Overloaded operations
+    ComplexNumber& operator+ (const ComplexNumber& rhs);
+    ComplexNumber& operator- (const ComplexNumber& rhs);
+    ComplexNumber& operator* (const ComplexNumber& rhs);
+    ComplexNumber& operator/ (const ComplexNumber& rhs);
+    ComplexNumber& operator! (const ComplexNumber& rhs);
+
+private:
+    double _real;
+    double _imaginary;
 };
+
+ostream& operator<< (ostream& out, const ComplexNumber& cn) {
+	out << cn._real << "+" << cn._imaginary << "i";
+}
+
+ComplexNumber operator+ (const ComplexNumber& rhs) {
+	return ComplexNumber((this->_real + rhs._real), (this->_imaginary + rhs._imaginary));
+}
+
+ComplexNumber operator/ (const ComplexNumber& rhs) {
+	// [(xu+yv)+(uy-xv)i]/(u2 +v2)
+
+}
 
 int main (int argc, char* argv[])
 {
     // Driver code
-    
     return 0;
 }
