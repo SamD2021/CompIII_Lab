@@ -5,52 +5,48 @@ using namespace std;
 
 class ComplexNumber{
 public:
-    // Default constructor
-    ComplexNumber() : _real(0), _imaginary(0) {}
-
-    // Value constructor
-    ComplexNumber(double real, double imaginary) : _real(real), _imaginary(imaginary) {}
-
-    // Accessor functions
-    double getReal() const { return _real; }
-    double getImaginary() const { return _imaginary; }
-
-    // Mutator functions
-    void setReal(double real) { _real = real; }
-    void setImaginary(double imaginary) { imaginary = imaginary; }
-
-    // Insertion operator
-    friend ostream& operator<< (ostream& out, const ComplexNumber& cn);
-
-    // Overloaded operations
-    ComplexNumber& operator+ (const ComplexNumber& rhs);
-    ComplexNumber& operator- (const ComplexNumber& rhs);
-    ComplexNumber& operator* (const ComplexNumber& rhs);
-    ComplexNumber& operator/ (const ComplexNumber& rhs);
-    ComplexNumber& operator! (const ComplexNumber& rhs);
-
+    ComplexNumber();
+    ComplexNumber(double real,double imaginary);
+    double getReal()const;
+    void setReal(double num);
+    void setImaginary(double num);
+    double getImaginary()const;
+    friend ostream& operator<<(ostream& out, const ComplexNumber& cn);
+    ComplexNumber& operator+(const ComplexNumber& rhs);
+    ComplexNumber& operator-(const ComplexNumber& rhs);
+    ComplexNumber& operator*(const ComplexNumber& rhs);
+    ComplexNumber& operator/(const ComplexNumber& rhs);
+    ComplexNumber& operator!(const ComplexNumber& rhs);
 private:
-    double _real;
-    double _imaginary;
+    double real;
+    double imaginary;
 };
 
-ostream& operator<< (ostream& out, const ComplexNumber& cn) {
-	out << cn._real << "+" << cn._imaginary << "i";
-}
 
-ComplexNumber operator+ (const ComplexNumber& rhs) {
-	return ComplexNumber((this->_real + rhs._real), (this->_imaginary + rhs._imaginary));
-}
+int main(int argc, char* argv[]){
+    vector<ComplexNumber> complexNumbers;
+    ComplexNumber c1;
+    ComplexNumber c2(1 , 3);
 
-ComplexNumber operator/ (const ComplexNumber& rhs) {
-	// For reference: a / b = [(xu+yv)+(uy-xv)i] / (u^2 + v^2) where a = x+yi and b u+vi
-    double divFactor = ((rhs._real * rhs._real) + (rhs._imaginary * rhs._imaginary));
-    return ComplexNumber(((this->_real * rhs._real) + (this->_imaginary * rhs.imaginary)) / divFactor,
-            ((rhs._real * this->_imaginary) - (this->_real * rhs._imaginary)) / divFactor);
-}
-
-int main (int argc, char* argv[])
-{
-    // Driver code
+    cout << "Value of c1 (default constructor) :" << endl;
+    cout << "c1.Re() == " << c1.getReal() << ", c1.Im() == " << c1.getImaginary() << endl;
+    cout << "Value of c2 (value constructor) :" << endl;
+    cout << "c2.Re() == " << c2.getReal() << ", c2.Im() == " << c2.getImaginary() << endl;
+    cout << endl;
+    cout << "c2 + c3 (1+2i + 3+4i) == 4+6i" << endl;
+    cout << "c2 - c3 (1+2i - 3+4i) == -2+-2i" << endl;
+    cout << "c2 * c3 (1+2i * 3+4i) == -5+10i" << endl;
+    cout << "c2 / c3 (1+2i / 3+4i) == 0.44+0.08i" << endl;
+    cout << "(c2 / c3) + (c2*c3) == -4.56+10.08i" << endl;
+    cout << "Conjugate of c2 (1+2i) == 1+-2i" << endl;
+    cout << endl;
+    cout << "Vector output using indexed for-loop:" << endl;
+    for(int i = 0; i < 10; i++){
+        cout << complexNumbers.at(i) << endl;
+    }
+    cout << "Vector output using indexed for-loop:" << endl;
+    for(auto vi = complexNumbers.begin(); vi < complexNumbers.end(); vi++){
+        cout << *vi << endl;
+    }
     return 0;
 }
