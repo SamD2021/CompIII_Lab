@@ -43,8 +43,10 @@ ComplexNumber operator+ (const ComplexNumber& rhs) {
 }
 
 ComplexNumber operator/ (const ComplexNumber& rhs) {
-	// [(xu+yv)+(uy-xv)i]/(u2 +v2)
-
+	// For reference: a / b = [(xu+yv)+(uy-xv)i] / (u^2 + v^2) where a = x+yi and b u+vi
+    double divFactor = ((rhs._real * rhs._real) + (rhs._imaginary * rhs._imaginary));
+    return ComplexNumber(((this->_real * rhs._real) + (this->_imaginary * rhs.imaginary)) / divFactor,
+            ((rhs._real * this->_imaginary) - (this->_real * rhs._imaginary)) / divFactor);
 }
 
 int main (int argc, char* argv[])
