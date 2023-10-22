@@ -13,8 +13,8 @@ public:
     void setImagNum(double i) { imagNum = i; }
     friend ostream& operator<<(ostream& out, const ComplexNumber& cn);
     ComplexNumber operator+(const ComplexNumber& rhs) const;
-    ComplexNumber operator-(const ComplexNumber& rhs);
-    ComplexNumber operator*(const ComplexNumber& rhs);
+    ComplexNumber operator-(const ComplexNumber& rhs) const;
+    ComplexNumber operator*(const ComplexNumber& rhs) const;
     ComplexNumber operator/(const ComplexNumber& rhs) const;
     ComplexNumber operator!() const;
 private:
@@ -35,10 +35,10 @@ int main(int argc, char* argv[]){
     cout << "c2.Re() == " << c2.getRealNum() << ", c2.Im() == " << c2.getImagNum() << endl;
     cout << endl;
     cout << "c2 + c3 (1+2i + 3+4i) == " << c2 + c3 << endl;
-    cout << "c2 - c3 (1+2i - 3+4i) == -2+-2i" << endl;
-    cout << "c2 * c3 (1+2i * 3+4i) == -5+10i" << endl;
+    cout << "c2 - c3 (1+2i - 3+4i) == " << c2 - c3 << endl;
+    cout << "c2 * c3 (1+2i * 3+4i) == " << c2 * c3 << endl;
     cout << "c2 / c3 (1+2i / 3+4i) == " << c2 / c3 << endl;
-//    cout << "(c2 / c3) + (c2*c3) == " << (c2 / c3) + (c2*c3) << endl;
+    cout << "(c2 / c3) + (c2*c3) == " << (c2 / c3) + (c2*c3) << endl;
     cout << "Conjugate of c2 (1+2i) == " << !c2 << endl;
     cout << endl;
     cout << "Vector output using indexed for-loop:" << endl;
@@ -76,4 +76,14 @@ ComplexNumber ComplexNumber::operator/ (const ComplexNumber& rhs) const {
 
 ComplexNumber ComplexNumber::operator!() const {
     return {this->realNum,this->imagNum *-1};
+}
+
+ComplexNumber ComplexNumber::operator-(const ComplexNumber& rhs) const{
+    return {this->realNum - rhs.realNum, this->imagNum - rhs.imagNum};
+
+};
+
+ComplexNumber ComplexNumber::operator* (const ComplexNumber &rhs) const{
+    return {(this->realNum * rhs.realNum - this->imagNum * rhs.imagNum),this->imagNum * rhs.realNum + this->realNum * rhs.imagNum};
+
 }
