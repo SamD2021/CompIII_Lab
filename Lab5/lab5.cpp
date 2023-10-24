@@ -29,19 +29,19 @@ int main(int argc, char* argv[]){
     ComplexNumber c1;
     ComplexNumber c2(1 , 2);
     ComplexNumber c3(3,4);
-    cout << "Value of c1 (default constructor) :" << endl;
-    cout << "c1.Re() == " << c1.getRealNum() << ", c1.Im() == " << c1.getImagNum() << endl;
-    cout << "Value of c2 (value constructor) :" << endl;
-    cout << "c2.Re() == " << c2.getRealNum() << ", c2.Im() == " << c2.getImagNum() << endl;
-    cout << endl;
-    cout << "c2 + c3 (1+2i + 3+4i) == " << c2 + c3 << endl;
-    cout << "c2 - c3 (1+2i - 3+4i) == " << c2 - c3 << endl;
-    cout << "c2 * c3 (1+2i * 3+4i) == " << c2 * c3 << endl;
-    cout << "c2 / c3 (1+2i / 3+4i) == " << c2 / c3 << endl;
-    cout << "(c2 / c3) + (c2*c3) == " << (c2 / c3) + (c2*c3) << endl;
-    cout << "Conjugate of c2 (1+2i) == " << !c2 << endl;
-    cout << endl;
-    cout << "Vector output using indexed for-loop:" << endl;
+    cout << "Value of c1 (default constructor) :" << endl
+    << "c1.Re() == " << c1.getRealNum() << ", c1.Im() == " << c1.getImagNum() << endl
+    << "Value of c2 (value constructor) :" << endl
+    << "c2.Re() == " << c2.getRealNum() << ", c2.Im() == " << c2.getImagNum() << endl
+    << endl
+    << "c2 + c3 (1+2i + 3+4i) == " << c2 + c3 << endl
+    << "c2 - c3 (1+2i - 3+4i) == " << c2 - c3 << endl
+    << "c2 * c3 (1+2i * 3+4i) == " << c2 * c3 << endl
+    << "c2 / c3 (1+2i / 3+4i) == " << c2 / c3 << endl
+    << "(c2 / c3) + (c2*c3) == " << (c2 / c3) + (c2*c3) << endl
+    << "Conjugate of c2 (1+2i) == " << !c2 << endl
+    << endl
+    << "Vector output using indexed for-loop:" << endl;
     ComplexNumber temp;
     for(int i = 0; i < 10; i++){
         temp.setRealNum(i);
