@@ -90,9 +90,11 @@ template<typename T>
 void BSTNode<T>::insert(const T& data) {
 	cout << "BSTNode<T>::insert called with data == " << data << endl;
 	
-	if (data < this->_left) {
+	BSTNode<T> newNode(data);
+	
+	if (newNode._data < _left->_data) {
 		if (_left == nullptr) {
-			_left = new BSTNode<T>(data);
+			_left = &newNode;
 		}
 		else {
 			_left->insert(data);
@@ -100,7 +102,7 @@ void BSTNode<T>::insert(const T& data) {
 	}
 	else {
 		if (_right == nullptr) {
-			_right = new BSTNode<T>(data);
+			_right = &newNode;
 		}
 		else {
 			_right->insert(data);
@@ -123,27 +125,34 @@ void BSTNode<T>::inOrderDisplay(ostream& out) const {
 }
 
 
-/**
- *  ***** Complete preOrderDisplay and postOrderDisplay below *****
- */
 template<typename T>
 void BSTNode<T>::preOrderDisplay(ostream& out) const {
-	// comment out the next line when you've completed this function!
 	cout << "BSTNode<T>::preOrderDisplay called\n";
 	
-	/**
-	 *  ***** Write me! *****
-	 */
+	out << _data;
+	if (_left != nullptr) {
+	    _left->preOrderDisplay(out);
+	    out << ", ";
+	}
+	if (_right != nullptr) {
+	    out << ", ";
+	    _right->preOrderDisplay(out);
+	}
 }
 
 template<typename T>
 void BSTNode<T>::postOrderDisplay(ostream& out) const {
-	// comment out the next line when you've completed this function!
 	cout << "BSTNode<T>::postOrderDisplay called\n";
 	
-	/**
-	 *  ***** Write me! *****
-	 */
+	if (_left != nullptr) {
+	    _left->preOrderDisplay(out);
+	    out << ", ";
+	}
+	if (_right != nullptr) {
+	    out << ", ";
+	    _right->preOrderDisplay(out);
+	}
+	out << _data;
 }
 
 
