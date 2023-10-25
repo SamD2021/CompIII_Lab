@@ -38,7 +38,7 @@ public:
 	// ***** Change the implementation of this insertion operator
 	// ***** in order to switch to pre- or post-order display
 	friend ostream& operator<< (ostream& out, const BSTNode<T>& b)
-		{ b.inOrderDisplay(out); return out; }
+		{ b.postOrderDisplay(out); return out; }
 	
 private:
 	T _data;
@@ -88,26 +88,22 @@ BSTNode<T>& BSTNode<T>::operator= (BSTNode& b) {
 
 template<typename T>
 void BSTNode<T>::insert(const T& data) {
-	cout << "BSTNode<T>::insert called with data == " << data << endl;
-	
-	BSTNode<T> newNode(data);
-	
-	if (newNode._data < _left->_data) {
-		if (_left == nullptr) {
-			_left = &newNode;
-		}
-		else {
-			_left->insert(data);
-		}
-	}
-	else {
-		if (_right == nullptr) {
-			_right = &newNode;
-		}
-		else {
-			_right->insert(data);
-		}
-	}
+//	cout << "BSTNode<T>::insert called with data == " << data << endl;
+
+	auto ptr = new BSTNode<T>(data);
+    if(data < this->_data){
+        if(_left == nullptr){
+            _left = ptr;
+        }else{
+            _left->insert(data);
+        }
+    }else{
+        if(_right == nullptr){
+            _right = ptr;
+        }else{
+            _right->insert(data);
+        }
+    }
 }
 
 
@@ -127,20 +123,29 @@ void BSTNode<T>::inOrderDisplay(ostream& out) const {
 
 template<typename T>
 void BSTNode<T>::preOrderDisplay(ostream& out) const {
-	cout << "BSTNode<T>::preOrderDisplay called\n";
-	
-	/**
-	 *  ***** Write me! *****
-	 */
+	out << _data;
+	if (_left != nullptr) {
+		out << ", ";
+		_left->preOrderDisplay(out);
+	}
+	if (_right != nullptr) {
+		out << ", ";
+		_right->preOrderDisplay(out);
+	}
 }
 
 template<typename T>
 void BSTNode<T>::postOrderDisplay(ostream& out) const {
-	cout << "BSTNode<T>::postOrderDisplay called\n";
-	
-	/**
-	 *  ***** Write me! *****
-	 */
+//	cout << "BSTNode<T>::postOrderDisplay called\n";
+    if (_left != nullptr) {
+        _left->postOrderDisplay(out);
+        out << ", ";
+    }
+    if (_right != nullptr) {
+        _right->postOrderDisplay(out);
+        out << ", ";
+    }
+    out << _data;
 }
 
 
