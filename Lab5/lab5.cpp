@@ -81,7 +81,7 @@ ComplexNumber ComplexNumber::operator!() const {
 ComplexNumber ComplexNumber::operator-(const ComplexNumber& rhs) const{
     return {this->realNum - rhs.realNum, this->imagNum - rhs.imagNum};
 
-};
+}
 
 ComplexNumber ComplexNumber::operator* (const ComplexNumber &rhs) const{
     return {(this->realNum * rhs.realNum - this->imagNum * rhs.imagNum),this->imagNum * rhs.realNum + this->realNum * rhs.imagNum};
