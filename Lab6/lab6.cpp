@@ -38,7 +38,7 @@ public:
 	// ***** Change the implementation of this insertion operator
 	// ***** in order to switch to pre- or post-order display
 	friend ostream& operator<< (ostream& out, const BSTNode<T>& b)
-		{ b.postOrderDisplay(out); return out; }
+		{ b.preOrderDisplay(out); return out; }
 	
 private:
 	T _data;
