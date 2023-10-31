@@ -215,6 +215,10 @@ int main(void) {
     mi.insert(make_pair("iroot4List",iroot4List));
 
 #ifdef debug
+=======
+
+#ifdef debug	
+>>>>>>> origin/dev
 	BSTNode<int> iroot2(iroot); // use copy constructor
 	cout << "\nAfter copy constructor:\n";
 	cout << "iroot2 == " << iroot2 << endl;
