@@ -171,21 +171,44 @@ int main(void) {
 	iroot.insert(200);
 	iroot.insert(300);
 	cout << "iroot == " << iroot << endl;
+<<<<<<< Updated upstream
     list<int> irootList;
+=======
+    
+	cout << "Creating irootList via iroot.listify";
+	list<int> irootList;
+>>>>>>> Stashed changes
     iroot.listify(irootList);
+
     // forward iterator
+<<<<<<< Updated upstream
+=======
+	cout << "irootList (forward iterator) == ";
+>>>>>>> Stashed changes
     for(auto li = irootList.begin(); li != irootList.end(); li++){
         cout << *li << " ";
     }
     cout << endl;
+
     // reverse iterator
+<<<<<<< Updated upstream
 
     // ranged for loop
+=======
+	cout << "irootList (reverse iterator) == ";
+
+    // ranged for loop
+	cout << "irootList (ranged for loop) == ";
+>>>>>>> Stashed changes
     for(auto num: irootList){
         cout << num << " ";
     }
     cout << endl;
 
+<<<<<<< Updated upstream
+=======
+	cout << "Creating srootList via sroot.listify";
+>>>>>>> Stashed changes
 	BSTNode<string> sroot("Sunday");
 	sroot.insert("Monday");
 	sroot.insert("Tuesday");
@@ -194,12 +217,27 @@ int main(void) {
 	sroot.insert("Friday");
 	sroot.insert("Saturday");
 	cout << "sroot == " << sroot << endl;
+<<<<<<< Updated upstream
     list<string> srootList;
     sroot.listify(srootList);
     // forward iterator
 
     // reverse iterator
     // ranged for loop
+=======
+    
+	list<string> srootList;
+    sroot.listify(srootList);
+
+    // forward iterator
+	cout << "srootList (forward iterator) == ";
+
+    // reverse iterator
+	cout << "srootList (reverse iterator) == ";
+
+    // ranged for loop
+	cout << "srootList (ranged for loop) == ";
+>>>>>>> Stashed changes
     for(auto num: srootList){
         cout << num << " ";
     }
@@ -208,9 +246,15 @@ int main(void) {
     iroot4.insert(3000);
     iroot4.insert(4000);
     iroot4.insert(5000);
+
+	cout << "Creating iroot4List via iroot4.listify";
     list<int> iroot4List;
     iroot4.listify(iroot4List);
     map<string,list<int>> mi;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     mi.insert(make_pair("irootList",irootList));
     mi.insert(make_pair("iroot4List",iroot4List));
 
