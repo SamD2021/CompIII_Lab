@@ -171,19 +171,27 @@ int main(void) {
     iroot.insert(200);
     iroot.insert(300);
     cout << "iroot == " << iroot << endl;
+
     list<int> irootList;
+    cout << "Creating irootList via iroot.listify" << endl;
     iroot.listify(irootList);
+
     // forward iterator
+    cout << "irootList (forward iterator) == ";
     for (auto li = irootList.begin(); li != irootList.end(); li++) {
         cout << *li << " ";
     }
     cout << endl;
+
     // reverse iterator
+    cout << "irootList (reverse iterator) == ";
     for (auto li = irootList.rbegin(); li != irootList.rend(); li++) {
         cout << *li << " ";
     }
     cout << endl;
+
     // ranged for loop
+    cout << "irootList (ranged for loop) == ";
     for (auto num: irootList) {
         cout << num << " ";
     }
@@ -197,28 +205,40 @@ int main(void) {
     sroot.insert("Friday");
     sroot.insert("Saturday");
     cout << "sroot == " << sroot << endl;
+
     list<string> srootList;
+    cout << "Creating srootList via sroot.listify" << endl;
     sroot.listify(srootList);
+
+    cout << "srootList (forward iterator) == ";
     for (auto li = srootList.begin(); li != srootList.end(); li++) {
         cout << *li << " ";
     }
     cout << endl;
+
     // reverse iterator
+    cout << "srootList (reverse iterator) == ";
     for (auto li = srootList.rbegin(); li != srootList.rend(); li++) {
         cout << *li << " ";
     }
     cout << endl;
+
     // ranged for loop
+    cout << "srootList (ranged for loop) == ";
     for (auto num: srootList) {
         cout << num << " ";
     }
+
     BSTNode<int> iroot4(1000);
     iroot4.insert(2000);
     iroot4.insert(3000);
     iroot4.insert(4000);
     iroot4.insert(5000);
+
     list<int> iroot4List;
+    cout << "Creating iroot4List via iroot4.listify" << endl;
     iroot4.listify(iroot4List);
+
     map<string, list<int>> mi;
     mi.insert(make_pair("irootList", irootList));
     mi.insert(make_pair("iroot4List", iroot4List));
