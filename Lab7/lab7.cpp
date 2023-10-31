@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <string>
+#include <list>
+#include <map>
 
 using namespace std;
 
@@ -33,6 +35,9 @@ public:
 	void inOrderDisplay(ostream&) const;
 	void preOrderDisplay(ostream&) const;
 	void postOrderDisplay(ostream&) const;
+
+    //
+    void listify(list<T>&) const;
 	
 	// The insertion operator below uses in-order display.
 	// ***** Change the implementation of this insertion operator
@@ -148,6 +153,16 @@ void BSTNode<T>::postOrderDisplay(ostream& out) const {
     out << _data;
 }
 
+template <typename T>
+void BSTNode<T>::listify(list<T> & rootList) const {
+    if (_left != nullptr) {
+        _left->listify(rootList);
+    }
+    rootList.push_back(_data);
+    if (_right != nullptr) {
+        _right->listify(rootList);
+    }
+}
 
 int main(void) {
 	BSTNode<int> iroot(100);
@@ -156,7 +171,21 @@ int main(void) {
 	iroot.insert(200);
 	iroot.insert(300);
 	cout << "iroot == " << iroot << endl;
-	
+    list<int> irootList;
+    iroot.listify(irootList);
+    // forward iterator
+    for(auto li = irootList.begin(); li != irootList.end(); li++){
+        cout << *li << " ";
+    }
+    cout << endl;
+    // reverse iterator
+
+    // ranged for loop
+    for(auto num: irootList){
+        cout << num << " ";
+    }
+    cout << endl;
+
 	BSTNode<string> sroot("Sunday");
 	sroot.insert("Monday");
 	sroot.insert("Tuesday");
@@ -165,8 +194,27 @@ int main(void) {
 	sroot.insert("Friday");
 	sroot.insert("Saturday");
 	cout << "sroot == " << sroot << endl;
+    list<string> srootList;
+    sroot.listify(srootList);
+    // forward iterator
 
-#ifdef debug	
+    // reverse iterator
+    // ranged for loop
+    for(auto num: srootList){
+        cout << num << " ";
+    }
+    BSTNode<int> iroot4(1000);
+    iroot4.insert(2000);
+    iroot4.insert(3000);
+    iroot4.insert(4000);
+    iroot4.insert(5000);
+    list<int> iroot4List;
+    iroot4.listify(iroot4List);
+    map<string,list<int>> mi;
+    mi.insert(make_pair("irootList",irootList));
+    mi.insert(make_pair("iroot4List",iroot4List));
+
+#ifdef debug
 	BSTNode<int> iroot2(iroot); // use copy constructor
 	cout << "\nAfter copy constructor:\n";
 	cout << "iroot2 == " << iroot2 << endl;
