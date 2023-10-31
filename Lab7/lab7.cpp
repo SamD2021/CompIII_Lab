@@ -172,9 +172,22 @@ int main(void) {
     iroot.insert(300);
     cout << "iroot == " << iroot << endl;
 
+    BSTNode<string> sroot("Sunday");
+    sroot.insert("Monday");
+    sroot.insert("Tuesday");
+    sroot.insert("Wednesday");
+    sroot.insert("Thursday");
+    sroot.insert("Friday");
+    sroot.insert("Saturday");
+    cout << "sroot == " << sroot << endl;
+
+    cout << endl;
+
     list<int> irootList;
     cout << "Creating irootList via iroot.listify" << endl;
     iroot.listify(irootList);
+
+    cout << endl;
 
     // forward iterator
     cout << "irootList (forward iterator) == ";
@@ -197,18 +210,13 @@ int main(void) {
     }
     cout << endl;
 
-    BSTNode<string> sroot("Sunday");
-    sroot.insert("Monday");
-    sroot.insert("Tuesday");
-    sroot.insert("Wednesday");
-    sroot.insert("Thursday");
-    sroot.insert("Friday");
-    sroot.insert("Saturday");
-    cout << "sroot == " << sroot << endl;
+    cout << endl;
 
     list<string> srootList;
     cout << "Creating srootList via sroot.listify" << endl;
     sroot.listify(srootList);
+
+    cout << endl;
 
     cout << "srootList (forward iterator) == ";
     for (auto li = srootList.begin(); li != srootList.end(); li++) {
@@ -228,20 +236,32 @@ int main(void) {
     for (auto num: srootList) {
         cout << num << " ";
     }
+    cout << endl;
+
+    cout << endl;
 
     BSTNode<int> iroot4(1000);
     iroot4.insert(2000);
     iroot4.insert(3000);
     iroot4.insert(4000);
     iroot4.insert(5000);
+    cout << "iroot4 == " << sroot << endl;
+
+    cout << endl;
 
     list<int> iroot4List;
     cout << "Creating iroot4List via iroot4.listify" << endl;
     iroot4.listify(iroot4List);
 
+    cout << endl;
+
     map<string, list<int>> mi;
     mi.insert(make_pair("irootList", irootList));
     mi.insert(make_pair("iroot4List", iroot4List));
+
+    cout << "Contents of map<string, list<int>> mi (using ranged for loops):" << endl;
+
+    cout << "Using map index operator:" << endl;
 
 #ifdef debug
 >>>>>>> origin/dev
