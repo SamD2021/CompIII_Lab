@@ -212,6 +212,7 @@ int main(void) {
     for (auto num: srootList) {
         cout << num << " ";
     }
+    cout << endl;
     BSTNode<int> iroot4(1000);
     iroot4.insert(2000);
     iroot4.insert(3000);
@@ -222,6 +223,13 @@ int main(void) {
     map<string, list<int>> mi;
     mi.insert(make_pair("irootList", irootList));
     mi.insert(make_pair("iroot4List", iroot4List));
+    for(const auto& [str,list]: mi){
+        cout << str << ":";
+        for(auto item: list){
+            cout << " " << item;
+        }
+        cout << endl;
+    }
 
 #ifdef debug
 >>>>>>> origin/dev
