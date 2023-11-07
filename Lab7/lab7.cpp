@@ -239,8 +239,6 @@ int main(void) {
     cout << endl;
 
     cout << endl;
-
-    cout << endl;
     BSTNode<int> iroot4(1000);
     iroot4.insert(2000);
     iroot4.insert(3000);
@@ -256,6 +254,7 @@ int main(void) {
 
     cout << endl;
 
+    cout << "Contents of map<string, list<int>> mi (using ranged for loops):" << endl;
     map<string, list<int>> mi;
     mi.insert(make_pair("irootList", irootList));
     mi.insert(make_pair("iroot4List", iroot4List));
@@ -267,9 +266,9 @@ int main(void) {
         cout << endl;
     }
 
-    cout << "Contents of map<string, list<int>> mi (using ranged for loops):" << endl;
-
     cout << "Using map index operator:" << endl;
+    cout << "mi [\"irootList\"] == " << mi[irootList] << endl;
+    cout << "mi [\"iroot4List\"] == " << mi[iroot4List] << endl;
 
 #ifdef debug
 >>>>>>> origin/dev
